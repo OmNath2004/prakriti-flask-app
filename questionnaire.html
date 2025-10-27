@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UE6001 - Prakriti Self-Assessment Questionnaire</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Uka Tarsadia University</h1>
+      <h2>B.Tech. CSE / CSE(CC) / CE(SE) - Semester VII</h2>
+      <h3>UE6001: Indian Health, Wellness and Psychology</h3>
+      <div class="pink-box">
+        <strong>Unit I: Understanding Human Body</strong><br />
+        Constitution, Vata, Pitta, Kapha, and Mental Constitution, Disease
+        Process
+      </div>
+    </header>
+
+    <main>
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %} {% endif %} {% endwith %} {% if stage == 'form' %}
+      <h1>Prakriti Self-Assessment Questionnaire</h1>
+      <p>
+        <strong>Objective:</strong> To help students identify their own body
+        constitution (Prakriti) by observing physical, mental, and emotional
+        traits.
+      </p>
+
+      <form method="POST">
+        <!-- All sections unchanged - Physical, Mental, Daily Habits, Environmental, Reflection -->
+        <div class="section">
+          <h2>Physical Traits Observation</h2>
+          <div class="question">
+            <h3>Skin: Observe your skin type.</h3>
+            <label
+              ><input type="radio" name="skin" value="vata" /> Dry (Vata)</label
+            >
+            <label
+              ><input type="radio" name="skin" value="pitta" /> Oily
+              (Pitta)</label
+            >
+            <label
+              ><input type="radio" name="skin" value="kapha" /> Balanced
+              (Kapha)</label
+            >
+            <input
+              type="text"
+              name="skin_note"
+              placeholder="Additional notes on skin..."
+            />
+          </div>
+          <!-- ... (body, hair, eyes questions unchanged) ... -->
+          <div class="question">
+            <h3>Body Build: Note your body frame.</h3>
+            <label
+              ><input type="radio" name="body" value="vata" /> Naturally thin
+              (Vata)</label
+            >
+            <label
+              ><input type="radio" name="body" value="pitta" /> Muscular
+              (Pitta)</label
+            >
+            <label
+              ><input type="radio" name="body" value="kapha" /> Heavier build
+              (Kapha)</label
+            >
+            <input
+              type="text"
+              name="body_note"
+              placeholder="Additional notes on body build..."
+            />
+          </div>
+          <div class="question">
+            <h3>Hair: Check your hair type.</h3>
+            <label
+              ><input type="radio" name="hair" value="vata" /> Dry/Thin
+              (Vata)</label
+            >
+            <label
+              ><input type="radio" name="hair" value="pitta" /> Oily
+              (Pitta)</label
+            >
+            <label
+              ><input type="radio" name="hair" value="kapha" /> Thick
+              (Kapha)</label
+            >
+            <input
+              type="text"
+              name="hair_note"
+              placeholder="Additional notes on hair..."
+            />
+          </div>
+          <div class="question">
+            <h3>Eyes: Look at your eyes.</h3>
+            <label
+              ><input type="radio" name="eyes" value="vata" /> Small
+              (Vata)</label
+            >
+            <label
+              ><input type="radio" name="eyes" value="pitta" /> Medium,
+              sharp/bright (Pitta)</label
+            >
+            <label
+              ><input type="radio" name="eyes" value="kapha" /> Large
+              (Kapha)</label
+            >
+            <input
+              type="text"
+              name="eyes_note"
+              placeholder="Natural color, brightness, or other notes..."
+            />
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Mental and Emotional Traits</h2>
+          <div class="question">
+            <h3>Mindset: Reflect on your general mindset.</h3>
+            <label
+              ><input type="radio" name="mindset" value="vata" /> Restless
+              (Vata)</label
+            >
+            <label
+              ><input type="radio" name="mindset" value="pitta" /> Intense
+              (Pitta)</label
+            >
+            <label
+              ><input type="radio" name="mindset" value="kapha" /> Calm
+              (Kapha)</label
+            >
+            <input
+              type="text"
+              name="mindset_note"
+              placeholder="Additional notes on mindset..."
+            />
+          </div>
+          <div class="question">
+            <h3>Memory: Assess your memory.</h3>
+            <label
+              ><input type="radio" name="memory" value="vata" /> Quick but
+              forgetful (Vata)</label
+            >
+            <label
+              ><input type="radio" name="memory" value="pitta" /> Sharp and
+              retentive (Pitta)</label
+            >
+            <label
+              ><input type="radio" name="memory" value="kapha" /> Slow but
+              steady (Kapha)</label
+            >
+            <input
+              type="text"
+              name="memory_note"
+              placeholder="Additional notes on memory..."
+            />
+          </div>
+          <div class="question">
+            <h3>Emotions: Observe your emotional tendencies.</h3>
+            <label
+              ><input type="radio" name="emotions" value="vata" /> Prone to
+              anxiety (Vata)</label
+            >
+            <label
+              ><input type="radio" name="emotions" value="pitta" /> Prone to
+              anger (Pitta)</label
+            >
+            <label
+              ><input type="radio" name="emotions" value="kapha" /> Generally
+              content (Kapha)</label
+            >
+            <input
+              type="text"
+              name="emotions_note"
+              placeholder="Additional notes on emotions..."
+            />
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Daily Habits and Preferences</h2>
+          <div class="question">
+            <h3>Diet: Note your dietary preferences.</h3>
+            <label
+              ><input type="radio" name="diet" value="vata" /> Warm/Sweet
+              (Vata)</label
+            >
+            <label
+              ><input type="radio" name="diet" value="pitta" /> Cool/Spicy
+              (Pitta)</label
+            >
+            <label
+              ><input type="radio" name="diet" value="kapha" /> Balanced/Sweet
+              (Kapha)</label
+            >
+            <input
+              type="text"
+              name="diet_note"
+              placeholder="Specific preferences or notes..."
+            />
+          </div>
+          <div class="question">
+            <h3>Sleep: Reflect on your sleep patterns.</h3>
+            <label
+              ><input type="radio" name="sleep" value="vata" /> Light/Trouble
+              sleeping (Vata)</label
+            >
+            <label
+              ><input type="radio" name="sleep" value="pitta" /> Moderate
+              (Pitta)</label
+            >
+            <label
+              ><input type="radio" name="sleep" value="kapha" /> Deep
+              (Kapha)</label
+            >
+            <input
+              type="text"
+              name="sleep_note"
+              placeholder="Additional notes on sleep..."
+            />
+          </div>
+          <div class="question">
+            <h3>
+              Energy Levels: Assess your energy levels throughout the day.
+            </h3>
+            <label
+              ><input type="radio" name="energy" value="vata" />
+              Fluctuating/Fatigue (Vata)</label
+            >
+            <label
+              ><input type="radio" name="energy" value="pitta" /> Energetic
+              (Pitta)</label
+            >
+            <label
+              ><input type="radio" name="energy" value="kapha" />
+              Balanced/Steady (Kapha)</label
+            >
+            <input
+              type="text"
+              name="energy_note"
+              placeholder="Additional notes on energy..."
+            />
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Environmental Reactions</h2>
+          <div class="question">
+            <h3>
+              Weather Preferences: Consider your reaction to different weather
+              conditions.
+            </h3>
+            <label
+              ><input type="radio" name="weather" value="vata" /> Warm
+              (Vata)</label
+            >
+            <label
+              ><input type="radio" name="weather" value="pitta" /> Cool
+              (Pitta)</label
+            >
+            <label
+              ><input type="radio" name="weather" value="kapha" /> Warm and dry
+              (Kapha)</label
+            >
+            <input
+              type="text"
+              name="weather_note"
+              placeholder="Additional notes on weather..."
+            />
+          </div>
+          <div class="question">
+            <h3>Stress Response: Observe how you respond to stress.</h3>
+            <label
+              ><input type="radio" name="stress" value="vata" /> Anxious
+              (Vata)</label
+            >
+            <label
+              ><input type="radio" name="stress" value="pitta" /> Irritable
+              (Pitta)</label
+            >
+            <label
+              ><input type="radio" name="stress" value="kapha" /> Calm
+              (Kapha)</label
+            >
+            <input
+              type="text"
+              name="stress_note"
+              placeholder="Additional notes on stress response..."
+            />
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Reflection</h2>
+          <div class="question">
+            <h3>Write a reflection on your findings (after analysis).</h3>
+            <textarea
+              name="reflection"
+              rows="5"
+              placeholder="How do these traits influence your daily life, health, and well-being? What steps can you take to maintain balance according to your constitution?"
+            ></textarea>
+          </div>
+        </div>
+
+        <button type="submit">Generate Report</button>
+      </form>
+
+      {% elif stage == 'results' %}
+      <div id="results">
+        <h1>Your Prakriti Assessment Report</h1>
+        <div class="observation-list">
+          <h3>Compiled Observations</h3>
+          {% for q, obs in observations.items() %}
+          <p>
+            <strong>{{ q.capitalize() }}:</strong> {{ obs.selection or 'Not
+            selected' }}{% if obs.note %} - {{ obs.note }}{% endif %}
+          </p>
+          {% endfor %}
+        </div>
+        <h3>Dominant Traits</h3>
+        <p>
+          Scores (out of {{ total_answered }} answered): Vata: {{ vata_score }}
+          | Pitta: {{ pitta_score }} | Kapha: {{ kapha_score }}
+        </p>
+        <p>Dominant: {{ dominant_traits|join(' & ') or 'Balanced' }}</p>
+        <h3>Your Constitution (Prakriti)</h3>
+        <p>
+          Based on your dominant traits, your primary dosha is:
+          <strong>{{ primary_dosha }}</strong>
+        </p>
+        <h3>Dosha Details and Comparisons</h3>
+        <div class="dosha-desc">
+          <h4>Vata</h4>
+          <p>
+            <strong>Characteristics:</strong> Dry skin, thin build, restless
+            mind, light sleep, prefers warm weather.
+          </p>
+          <p><strong>Score:</strong> {{ vata_score }}</p>
+          <p>
+            <strong>Disease Process (Imbalances):</strong> May lead to anxiety,
+            digestive issues, joint pain if unbalanced.
+          </p>
+        </div>
+        <div class="dosha-desc">
+          <h4>Pitta</h4>
+          <p>
+            <strong>Characteristics:</strong> Oily skin, muscular build, intense
+            emotions, moderate sleep, prefers cool weather.
+          </p>
+          <p><strong>Score:</strong> {{ pitta_score }}</p>
+          <p>
+            <strong>Disease Process (Imbalances):</strong> May lead to
+            inflammation, skin rashes, acidity if unbalanced.
+          </p>
+        </div>
+        <div class="dosha-desc">
+          <h4>Kapha</h4>
+          <p>
+            <strong>Characteristics:</strong> Balanced skin, heavier build, calm
+            demeanor, deep sleep, prefers warm and dry weather.
+          </p>
+          <p><strong>Score:</strong> {{ kapha_score }}</p>
+          <p>
+            <strong>Disease Process (Imbalances):</strong> May lead to weight
+            gain, congestion, lethargy if unbalanced.
+          </p>
+        </div>
+        <h3>Reflection and Record</h3>
+        <p>{{ reflection }}</p>
+        <button onclick="window.print()">Print Report</button>
+        <a href="/">Back to Questionnaire</a>
+      </div>
+      {% endif %}
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 Uka Tarsadia University. All rights reserved. | Based on
+        Ayurvedic Principles from UE6001 Syllabus
+      </p>
+    </footer>
+  </body>
+</html>

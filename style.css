@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+header h1 { margin: 0; }
+header h2, h3, p { margin: 5px 0; }
+.pink-box {
+    background-color: #FFC0CB;
+    border-left: 5px solid #FF69B4;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h1, h2 { color: #4CAF50; }
+.section { margin-bottom: 30px; }
+.question {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.question h3 { margin-top: 0; }
+label { display: block; margin: 5px 0; }
+input[type="radio"] { margin-right: 10px; }
+input[type="text"], textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover { background-color: #45a049; }
+.dosha-desc {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #4CAF50;
+    background-color: #f9f9f9;
+}
+.dosha-desc h4 { color: #4CAF50; }
+.observation-list {
+    background-color: #fff3cd;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+}
+@media print {
+    body * { visibility: hidden; }
+    #results, #results * { visibility: visible; }
+    #results { position: absolute; left: 0; top: 0; width: 100%; }
+}
+.flash {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+.flash.warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+}
+@media print {
+    body * { visibility: hidden; }
+    #results, #results * { visibility: visible; }
+    #results { 
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        width: 100%; 
+        background: white; 
+    }
+    button, a { display: none; }  /* Hide buttons/links in print */
+}
